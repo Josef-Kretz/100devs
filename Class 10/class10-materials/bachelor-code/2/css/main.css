@@ -1,0 +1,8 @@
+.hidden{
+	display: none;
+	/* border: none; */
+}
+
+.cool-border {
+	border: 3px dashed blue;
+}

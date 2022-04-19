@@ -1,0 +1,89 @@
+/* PAGE LAYOUT  */
+body{
+  background: #78cee9;
+  margin: 25px 25px;
+  border: 5px solid #00cb4a;
+  font: normal 24px/36px Arial, sans-serif;
+}
+/* HEADER */
+h1{
+  font: bold 36px/36px "Times New Roman", sans-serif;
+  color:white;
+  font-style: italic;
+  text-align: center;
+}
+
+header ul{
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 12px;
+}
+
+ header li{
+  display: inline-block;
+  padding: 0 5px;
+  border-right: 0.5px solid #7e9298;
+}
+
+header li:first-child{
+  padding-left: 0;
+}
+
+header li:last-child{
+  padding-right: 0;
+  border-right: none;
+}
+
+/* FOOTER */
+footer{
+  clear: right;
+}
+
+footer ul{
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 12px;
+}
+
+footer li{
+  display: inline-block;
+  padding: 0 5px;
+  border-right: 0.5px solid #7e9298;
+}
+
+footer li:first-child{
+  padding-left: 0;
+}
+
+footer li:last-child{
+  padding-right: 0;
+  border-right: none;
+}
+
+/* LINKS */
+a{
+  color: #00cb9d;
+}
+/* ABOUT PAGE */
+.about-us h2{
+  font: bold 24px/36px  Arial, sans-serif;
+  color: white;
+}
+
+.about-us{
+  color: #cde5ed;
+  font: bold 16px/24px  Arial, sans-serif;
+}
+
+.about-us img{
+  max-width: 30%;
+  max-height: 200px;
+  float: right;
+}
+
+.about-us{
+  padding: 0 40px;
+}

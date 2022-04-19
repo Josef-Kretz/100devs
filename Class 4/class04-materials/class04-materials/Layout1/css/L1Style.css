@@ -1,0 +1,28 @@
+/* BODY */
+*{
+  box-sizing: border-box;
+}
+
+/* HEADER & FOOTER */
+header,
+footer{
+  height: 125px;
+  border: 1.5px solid black;
+  clear: both;
+}
+
+/* UPPER SECTION */
+.upper section{
+  width:33.3333%;
+  height: 200px;
+  border: 1px solid black;
+  float: left;
+}
+
+/* LOWER SECTION */
+.lower section{
+  width: 50%;
+  height: 300px;
+  border: 1px solid black;
+  float: left;
+}

@@ -1,0 +1,42 @@
+*{
+  box-sizing: border-box;
+}
+
+header{
+  border-bottom: 2px solid gray;
+}
+/* LAYOUT */
+
+header,
+footer{
+  height: 100px;
+  background: gold;
+  border: 3px solid black;
+  clear: both;
+}
+
+/* MOBILE STYLE FIRST */
+section{
+  height: 300px;
+  border: 2px solid black;
+  display: block;
+}
+
+/* RESPONSIVE ADDED FOR NON-MOBILE */
+@media (min-width: 601px) and (max-width: 900px) {
+  section {
+    display: inline-block;
+    float: left;
+    width: 50%;
+  }
+  section:last-of-type {
+    width: 100%;
+}
+
+@media (min-width: 901px) {
+  section {
+    display: inline-block;
+    float: left;
+    width: 33.3333%;
+  }
+}

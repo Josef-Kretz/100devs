@@ -1,0 +1,230 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+
+}
+
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+  background: transparent;
+  height: 100px;
+  width: 100%;
+}
+
+header * {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}
+
+.header-links {
+  width: 45%;
+  float: left;
+}
+
+.header-links li {
+  float: left;
+  padding-right: 10px;
+}
+
+header > img {
+  float: left;
+}
+
+.button {
+  float: right;
+  color: blue;
+  background: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.intro {
+  background: lightblue;
+  padding-bottom: 50px;
+}
+
+.intro > h1,
+.intro > p,
+.intro > span {
+  color: white;
+  text-align: center;
+  display: block;
+  padding: 0 25%;
+}
+
+.intro > h1 {
+  text-transform: uppercase;
+}
+
+.why {
+  background: white;
+  height: 500px;
+}
+
+.why * {
+  color:  blue;
+  text-align: center;
+  padding: 0 25%;
+}
+
+.why h2 {
+  text-transform: uppercase;
+}
+
+.visit {
+  background: lightgray;
+  height: 500px;
+}
+
+.visit section {
+  width: 50%;
+  float: left;
+}
+
+.visit img {
+  height: 200px;
+  width: 25%;
+  background: gray;
+}
+
+.visit * {
+  text-align: center;
+  text-transform: uppercase;
+  color: blue;
+  text-decoration: none;
+}
+
+.visit p {
+  text-transform: none;
+  padding: 0 10%;
+  margin-bottom: 25px;
+}
+
+.large-button {
+  background: transparent;
+  padding: 10px;
+  border: 2px solid darkgray;
+  font-weight: bold;
+}
+
+.volunteer {
+  background: white;
+  height: 500px;
+}
+
+.volunteer * {
+  text-align: center;
+  color: blue;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.volunteer p {
+  text-transform: none;
+  padding: 0 25%;
+}
+
+.volunteer a {
+  display: block;
+  margin-top: 20px;
+}
+
+footer {
+  background: lightblue;
+  height: 300px;
+}
+
+footer * {
+  text-decoration: none;
+  color: white;
+  list-style: none;
+}
+
+
+
+.footer-links {
+  width: 15%;
+  float: left;
+}
+
+.socials li {
+  display: inline-block;
+}
+
+.socials img {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  margin: 0 5px;
+}
+
+.footer-links > span {
+  text-transform: uppercase;
+  color: darkgray;
+  text-align: center;
+  display: block;
+}
+
+.site-map li,
+.contribute li {
+  display: inline-block;
+}
+
+.site-map li:first-of-type,
+.contribute li:first-of-type {
+  margin-right: 10%;
+}
+
+.contact-info {
+  width: 80%;
+  float: left;
+  text-align: right;
+}
+
+
+.footer-legal {
+  clear: both;
+  border-top: 2px solid white;
+}
+
+.footer-legal p {
+  width: 50%;
+  float: left;
+  margin-left: 10%;
+}
+
+.footer-logo {
+  float: right;
+  width: 25px;
+  height: 25px;
+  margin-right: 5%;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/

@@ -1,0 +1,367 @@
+/* Box Model Hack */
+* {
+  box-sizing: border-box;
+}
+
+/* Clear fix hack */
+.clearfix:after {
+     content: ".";
+     display: block;
+     clear: both;
+     visibility: hidden;
+     line-height: 0;
+     height: 0;
+}
+
+.clear {
+	clear: both;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+
+body {
+  color: #1d2534;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+header {
+  background: #1d2534;
+  height: 75px;
+}
+
+.header-nav ul {
+  float: right;
+  width: 100%;
+  text-align: right;
+  padding: 0;
+}
+
+.header-nav li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 5%;
+}
+
+.header-nav a {
+  text-decoration: none;
+  color: gray;
+  text-transform: uppercase;
+}
+
+.gray-btn {
+  color: white;
+  background: darkgrey;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+a.gray-btn {
+  color: white;
+}
+
+.intro {
+  color: white;
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(172deg, #1d2534 70%, white 30%);
+}
+
+.intro section {
+  float: left;
+  width: 50%;
+  height: 500px;
+  padding: 0 5%;
+  background: transparent;
+}
+
+.intro p {
+  margin-bottom: 15%;
+}
+
+.intro span {
+  text-transform: uppercase;
+}
+
+span.white-btn {
+  background: white;
+  color: #1d2534;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-right: 10%;
+  text-transform: uppercase;
+}
+
+span.right-caret {
+  margin-right: 2%;
+}
+
+.intro img {
+  background: white;
+  padding: 5% 10%;
+  border-radius: 5%;
+  box-shadow: 0 5px 5px -5px gray;
+}
+
+.logo-line {
+  background: white;
+  width: 100%;
+}
+
+.logo-line img {
+  float: right;
+  margin-right: 1%;
+}
+
+.logo-line img:first-of-type{
+  margin-right: 5%;
+}
+
+.about-company  {
+  clear: both;
+  width: 100%;
+  height: 500px;
+}
+
+.about-company > section {
+  float: left;
+  width: 50%;
+  padding: 5%;
+}
+
+.tagline {
+  text-transform: uppercase;
+}
+
+span.blue-btn {
+  background: #1d2534;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.quad section {
+  float: left;
+  width: 50%;
+}
+
+.about-team {
+  width: 100%;
+  height: 500px;
+  clear: both;
+}
+
+.about-team > section {
+  width: 50%;
+  float: left;
+  padding: 5%;
+}
+
+.how {
+  width: 100%;
+  height: 250px;
+  clear: both;
+  text-align: center;
+  padding: 0 30%;
+}
+
+.free-trial {
+  width: 100%;
+  height: 500px;
+}
+
+.free-trial > section {
+  width: 50%;
+  height: 450px;
+  float: left;
+  padding: 0 5%;
+}
+
+.free-trial span,
+.free-trial h2 {
+  text-transform: uppercase;
+}
+
+.free-trial li {
+  list-style: square;
+}
+
+.free-trial .blue-btn {
+      margin: 0 40%;
+}
+
+.features {
+  height: 650px;
+  background: linear-gradient(-5deg, #1d2534 75%, white 25%);
+  margin-top: 100px;
+}
+
+.features .section-title {
+  width: 30%;
+  margin-left: 10%;
+  margin-bottom: 100px;
+}
+
+.features > section > section {
+  width: 25%;
+  display: inline-block;
+  background: white;
+  margin: 2% 2%;
+  padding: 2%;
+  border-radius: 5px;
+  white-space: normal;
+  scroll-behavior: auto;
+}
+
+.feature-container {
+  overflow-x: hidden;
+  white-space: nowrap;
+}
+
+.feature-container section:nth-child(5) {
+  margin-left: -10%;
+}
+
+.features span,
+.features h2 {
+  text-transform: uppercase;
+}
+
+.marketing {
+  width: 100%;
+  height: 500px;
+}
+
+.marketing > section {
+  width: 50%;
+  height: 100%;
+  float: left;
+  padding: 5%;
+}
+
+.marketing span,
+.marketing h2 {
+  text-transform: uppercase;
+}
+
+.ceo-quote {
+  width: 100%;
+  height: 250px;
+}
+
+.ceo-quote > span,
+.ceo-quote > p {
+  text-align: center;
+  display: block;
+  margin: 0 25%;
+}
+
+.ceo-quote > span {
+  text-transform: uppercase;
+}
+
+.ceo-quote > section {
+  width: 100%;
+  height: 90px;
+}
+
+.ceo-quote img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  background: grey;
+  float: left;
+  margin-left: 40%;
+}
+
+.ceo-quote section {
+  margin-top: 30px;
+}
+
+.ceo-quote section span {
+  margin-left: 15px;
+}
+
+span.ceo-quote::before {
+  content: "";
+  display: inline-block;
+  height: 30px;
+}
+
+.order-now {
+  background: #1d2534;
+  width: 100%;
+  height: 200px;
+}
+
+.order-now section {
+  width: 50%;
+  display: inline-block;
+  height: inherit;
+  color: white;
+  padding: 5%;
+}
+
+
+.order-now .tagline {
+  color: gray;
+  display: block;
+}
+
+footer {
+  width: 100%;
+  height: 350px;
+  padding: 0 5%;
+}
+
+footer > section {
+  float: left;
+  width: 15%;
+}
+
+footer * {
+  list-style: none;
+  text-decoration: none;
+  color: gray;
+  padding: 0;
+  font-size: 14px;
+}
+
+footer span {
+  color: #1d2534;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+  margin-top: 50px;
+}
+
+footer li {
+  margin: 20px 0;
+}
+
+footer section > * {
+  padding: 0 10%;
+}
+
+.footer-products {
+  width: 40%;
+}
+
+.footer-products ul {
+  display: inline-block;
+  margin: 0;
+}
+
+footer .socials li {
+  float: left;
+  margin-right: 5%;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
