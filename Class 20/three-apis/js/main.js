@@ -28,7 +28,7 @@ function generateList(data)
   se.addEventListener('click', playFW)
 
   document.querySelector('#anime-title').innerText = randInd.attributes.canonicalTitle
-  document.querySelector('#release-date').innerText = "Relase Date: " + date
+  document.querySelector('#release-date').innerText = "Release Date: " + date
   document.querySelector('#anime-desc').innerText = randInd.attributes.description
 
   fetchHebrew(date)

@@ -1,0 +1,32 @@
+/******************************************
+/* CSS
+/*******************************************/
+
+/* Box Model Hack */
+*{
+  box-sizing: border-box;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+button {
+  display: block;
+  margin: 0 auto;
+}
+
+h2,
+h3 {
+  display: block;
+  text-align: center;
+}
+
+.card-con {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
