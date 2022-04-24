@@ -1,27 +1,26 @@
-//Example fetch using pokemonapi.co
 document.querySelector('button').addEventListener('click', getFetch)
 
 function getFetch(){
-  const choice = document.querySelector('input').value
-  console.log(choice)
-  const url = `https://api.nasa.gov/planetary/apod?api_key=iJy0Nd4wZZzfW2HFgBkNV4DDUsZ6PxL3RqQRgFfI&date=${choice}`
+  let choice = document.querySelector('input').value
+  choice = choice.trim().split('-').join("")
+  const url = `https://openlibrary.org/isbn/${choice}.json`
 
   fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
-        console.log(data)
-        if(data.media_type === "image"){
-          document.querySelector('img').src = data.hdurl
-        }else if(data.media_type === 'video'){
-          document.querySelector('iframe').src = data.url
-        }else{
-          alert('Media Not Supported - Contact NASA IMMEDIATLY')
+        let token = '|^|'
+        let title = data.title
+        if(!localStorage.getItem('books')&&title!==undefined) localStorage.setItem('books', data.title)
+        else if(title!==undefined)
+        {
+          let book = localStorage.getItem('books') + token + data.title
+          localStorage.setItem('books', book)
         }
-       
-        document.querySelector('h3').innerText = data.explanation
+        console.log('test');
+        let allBooks = localStorage.getItem('books').split(token)
+        document.querySelector('h2').innerText = allBooks[allBooks.length -1]
       })
       .catch(err => {
           console.log(`error ${err}`)
       });
 }
-
