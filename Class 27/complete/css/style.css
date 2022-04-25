@@ -10,20 +10,12 @@
 /******************************************
 /* LAYOUT
 /*******************************************/
-
-.pokeSelect {
-  text-align: center;
+img{
+  display: block;
+  margin: 0 auto;
+  width: 25%;
 }
 
-.pokemon {
-  display: flex;
-  justify-content: center;
-  gap: 15%;
-}
-
-li {
-  list-style: none;
-}
 
 /******************************************
 /* ADDITIONAL STYLES

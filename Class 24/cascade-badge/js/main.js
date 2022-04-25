@@ -25,7 +25,8 @@ console.log(indexMath([68, -1, 1, -7, 10, 10]))
 //Given an array of integers as strings and numbers, return the sum of the array values as if all were numbers.Return your answer as a number.
 function stringyNums(array)
 {
-  return array.reduce((a,b) => Number(a)+Number(b), 0)
+  return array.reduce((a,b) => a+ +b, 0) //unary operator coerces (b) into a number
 }
 
 console.log(stringyNums([1,'2',3,4,'5',6,7,'8',9,10]))
+console.log(stringyNums(['2',5,'11',4]))

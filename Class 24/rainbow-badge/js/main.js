@@ -1,45 +1,92 @@
 //Example fetch using pokemonapi.co
-document.querySelector('button').addEventListener('click', getFetch)
+//rewrite to compare two pokemon, and list their common games
+document.querySelector('#findPoke').addEventListener('click', comparePoke)
+document.querySelector('#randomPoke').addEventListener('click', randPoke)
 
-function getFetch(){
-  const poke1 = document.querySelector('#poke1').value
-  const poke2 = document.querySelector('#poke2').value
-  const url = 'https://pokeapi.co/api/v2/pokemon/'+poke1
+class PokemonCreator{
+  constructor()
+  {
+    this.name = ""
+    this.gameVersions = new Array()
+    this.spriteUrl = ""
+  }
+}
+
+function randPoke()
+{
+  let rand1 = Math.floor(Math.random()*898 + 1)
+  let rand2 = Math.floor(Math.random()*898 + 1)
+  document.querySelector('#poke1').value = rand1
+  document.querySelector('#poke2').value = rand2
+
+  comparePoke()
+}
+
+function comparePoke()
+{
+  const poke1 = document.querySelector('#poke1').value.toLowerCase()
+  const poke2 = document.querySelector('#poke2').value.toLowerCase()
+  const url1 = 'https://pokeapi.co/api/v2/pokemon/'+poke1
   const url2 = 'https://pokeapi.co/api/v2/pokemon/'+poke2
-  let pokeStore = []
-  let pokeImg = []
 
-  fetch(url)
-      .then(res => res.json()) // parse response as JSON
-      .then(data => {
+  getPoke(url1, url2)
+}
 
-        pokeStore.push(data.types[0].type.name)
-        pokeImg.push(data.sprites.front_shiny)
-        
-        fetch(url2)
-        .then(res => res.json()) // parse response as JSON
+function getPoke(url1, url2)
+{
+  fetch(url1)
+    .then(response => response.json()) //parse response as JSON
+    .then(data => {
+      let firstPokemon = new PokemonCreator()
+      firstPokemon.name = data.name[0].toUpperCase() + data.name.slice(1)
+      data.game_indices.forEach(game => firstPokemon.gameVersions.push(game.version.name))
+      firstPokemon.spriteUrl = data.sprites.front_shiny
+
+      fetch(url2)
+        .then(response => response.json()) //parse response as JSON
         .then(data => {
+          let secondPokemon = new PokemonCreator
+          secondPokemon.name = data.name[0].toUpperCase() + data.name.slice(1)
+          data.game_indices.forEach(game => secondPokemon.gameVersions.push(game.version.name))
+          secondPokemon.spriteUrl = data.sprites.front_shiny
 
-          pokeStore.push(data.types[0].type.name)
-          pokeImg.push(data.sprites.front_shiny)
-      
-          if((pokeStore[0] === "grass" && pokeStore[1] === 'water')){
-            document.querySelector('#pokeImg1').src = pokeImg[0]
-            document.querySelector('#pokeImg2').src = pokeImg[1]
-            document.querySelector('h2').innerText = " 2x > "
-          }
+          displayOverlap(firstPokemon, secondPokemon)
         })
         .catch(err => {
-            console.log(`error ${err}`)
-        });
+          console.log("Error: ", err)
+        })
+    })
+    .catch(err => {
+      console.log("Error: ", err)
+    })
+}
 
 
-      })
-      .catch(err => {
-          console.log(`error ${err}`)
-      });
+function addList(arr, target)
+{
+  document.querySelector(target).replaceChildren()
+  arr.forEach(el => {
+    let li = document.createElement('li')
+    li.textContent = el
+    document.querySelector(target).appendChild(li)
+  })
+}
 
+function displayOverlap(obj1, obj2)
+{
+  document.querySelector('#pokeName1').innerText = obj1.name
+  document.querySelector('#pokeImg1').src = obj1.spriteUrl
 
+  document.querySelector('#pokeName2').innerText = obj2.name
+  document.querySelector('#pokeImg2').src = obj2.spriteUrl
 
-      
+  if(obj1.gameVersions.length ==0) obj1.gameVersions.push("Games not found! API will be updated eventually :)")
+  if(obj2.gameVersions.length ==0) obj2.gameVersions.push("Games not found! API will be updated eventually :)")
+
+  let overlap = obj1.gameVersions.filter(game => obj2.gameVersions.includes(game))
+  if(overlap.length==0) overlap.push("No Overlapping games found!\nOr API out of date")
+
+  addList(overlap, '#pokeGames1')
+  addList(overlap, '#pokeGames2')
+
 }

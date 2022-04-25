@@ -9,17 +9,20 @@ document.addEventListener('keydown', (e)=> e.which=='82'&&document.querySelector
 function getFetch(){
   let choice = document.querySelector('input').value
   choice = choice.trim().split(' ').join("-").toLowerCase()
+  choice = choice.replaceAll('/','-')
   choice = choice.replaceAll(/[^\w||-]+/g, "")
-  const url = `https://www.dnd5eapi.co/api/spells/${choice}`
 
+  const url = `https://www.dnd5eapi.co/api/spells/${choice}`
 
   fetch(url)
       .then(res => res.json()) // parse response as JSON
       .then(data => {
        clearLists()
        document.querySelector('h2').innerText = "Name: " + data.name
-       document.querySelector('h3').innerText = "Class: " + classReader(data.classes, "#classList")
-       document.querySelector('h4').innerText = "Sub Classes: " + classReader(data.subclasses, "#subList")
+       document.querySelector('h3').innerText = "Class: "
+       classReader(data.classes, "#classList")
+       document.querySelector('h4').innerText = "Sub Classes: "
+       classReader(data.subclasses, "#subList")
       })
       .catch(err => {
           console.log(`error ${err}`)
@@ -28,14 +31,12 @@ function getFetch(){
 
 function classReader(array, ulName)
 {
-  let string = new String()
   array.forEach(cl =>
     {
       const li = document.createElement('li')
       li.textContent = cl.name
       document.querySelector(ulName).appendChild(li)
     })
-  return string
 }
 
 function clearLists()

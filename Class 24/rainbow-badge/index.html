@@ -4,24 +4,35 @@
     	<meta charset="utf-8">
     	<meta name="description" content="This is where your description goes">
     	<meta name="keywords" content="one, two, three">
+			<meta name="viewport" content="width=device-width, initial-scale:1">
 
-		<title>Title in the tab</title>
+		<title>Rainbow Badge</title>
 
 		<!-- external CSS link -->
 		<link rel="stylesheet" href="css/normalize.css">
 		<link rel="stylesheet" href="css/style.css">
 	</head>
 	<body>
+		<section class='pokeSelect'>
+			<h1>Which Pokemon?</h1>
+			<input id='poke1' type="text" name="">
+			<input id='poke2' type="text" name="">
+			<button id='findPoke' type="button" name="button">Find Pokemon History</button>
+			<button id='randomPoke' type="button" name="button">Random Pokemon</button>
+		</section>
 
-		<h1>Which Pokemon?</h1>
-		<input id='poke1' type="text" name="" value="">
-		<input id='poke2' type="text" name="">
-		<button type="button" name="button">Check Types</button>
-
-		<img id='pokeImg1' src="" alt="">
-		<h2>Result</h2>
-		<img id='pokeImg2' src="" alt="">
-		
+		<section class="pokemon">
+			<section>
+				<img id='pokeImg1' src="" alt="">
+				<h2 id='pokeName1'></h2>
+				<ul id='pokeGames1'></ul>
+			</section>
+			<section>
+				<img id='pokeImg2' src="" alt="">
+				<h2 id='pokeName2'></h2>
+				<ul id='pokeGames2'></ul>
+			</section>
+		</section>
 
 		<script type="text/javascript" src="js/main.js"></script>
 	</body>
