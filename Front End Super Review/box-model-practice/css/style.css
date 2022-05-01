@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 30px;
+  padding-left: 25px;
+  border: 1.5px solid red;
+}
+
+h2 {
+  font-size: 25px;
+  padding: 40px 0;
+  border: 8px solid gold;
+  margin: 20px 0;
+}
+
+span {
+  border: 1.5px solid black;
+  padding: 10px;
+  color: lightblue;
+}
+
+section {
+  width: 25%;
+  height: 200px;
+  margin: 0 auto;
+  border: 1px solid purple;
+}
