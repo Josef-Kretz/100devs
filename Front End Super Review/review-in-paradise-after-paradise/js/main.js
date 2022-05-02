@@ -2,8 +2,8 @@
 function arrayFunc(array)
 {
   if(array.length < 2) return -1
-  let n1 = array.shift()
-  let nN = array.pop()
+  let n1 = array[0]
+  let nN = array[array.length-1]
   if(n1 < nN) alert('Hi')
   else if(n1 > nN) alert('Bye')
   else if(n1 == nN) alert('We close in an hour')
