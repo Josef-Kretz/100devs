@@ -1,0 +1,39 @@
+Behavioral Questions: Cause Action Result (CAR)
+-each question should have a 3 sentence answer NO MORE NO LESS
+	-1 sentence for CAUSE:
+		At my last company...
+		At my last opportunity...
+	-1 sentence for ACTION:
+		Steps you took
+		Must be POSITIVE
+		DON'T BE HUMBLE
+	-1 sentence for RESULT:
+		How you are better because of it
+		How your team is better because of it
+		How you are the best thing since sliced bread because of it
+NEVER SAY BOOTCAMP AT INTERVIEW
+NEVER SAY SELF TAUGHT
+ALWAYS BE POSITIVE
+
+Technical Questions: Explanation Use Example (EUE)
+	-1 sentence for EXPLANATION
+	-1 sentence for USE
+	-1 sentence for EXAMPLE
+
+Whiteboarding Tests:
+	-COMMUNICATION AND COLLABORATION SKILLS
+	-job specific knowledge
+	-survival abilities when under pressure
+	-whiteboarding skills
+
+Technical Interviews/Coding Challenge: Parameters Returns Examples Pseudo Code (PREP)
+-for every coding challenge, you should work through the problem with PREP OUTLOUD
+-parameters are the values coming into the problem
+	-parameters help determine what to expect
+	what type of values ar e Returned, will it always return the same type of value
+	-talk through some examples with the interviewer, atleast 3 examples
+		-shows communication, shows you understand the problem, helps discover edge cases, prevents interviewer from reneging
+	-use Pseudo Code to create a high level solution
+PREP should take 5 to 10 minutes
+Interviewer might give you helpful info
+walk through PREP on codewars.com
