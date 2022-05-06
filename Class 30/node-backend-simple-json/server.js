@@ -4,64 +4,67 @@ const url = require('url');
 const querystring = require('querystring');
 const figlet = require('figlet')
 
+function readWrite(res, page, pageType, hasType=true)
+{
+  try
+  {
+    fs.readFile(page,
+      function(err, data)
+      {
+        if(hasType) res.writeHead(200, {'Content-Type': pageType});
+        res.write(data);
+        res.end();
+      });
+  }
+  catch (e)
+  {
+    console.log("Error: " + e)
+  }
+}
+
+function sendJson(res, object)
+{
+  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.end(JSON.stringify(object));
+}
+
 const server = http.createServer((req, res) => {
   const page = url.parse(req.url).pathname;
   const params = querystring.parse(url.parse(req.url).query);
   console.log(page);
   if (page == '/') {
-    fs.readFile('index.html', function(err, data) {
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(data);
-      res.end();
-    });
+    readWrite(res, 'index.html', 'text/html')
   }
   else if (page == '/otherpage') {
-    fs.readFile('otherpage.html', function(err, data) {
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(data);
-      res.end();
-    });
+    readWrite(res, 'otherpage.html', 'text/html')
   }
   else if (page == '/otherotherpage') {
-    fs.readFile('otherotherpage.html', function(err, data) {
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.write(data);
-      res.end();
-    });
+    readWrite(res, 'otherotherpage.html', 'text/html')
   }
   else if (page == '/api') {
     if('student' in params){
       if(params['student']== 'leon'){
-        res.writeHead(200, {'Content-Type': 'application/json'});
         const objToJson = {
           name: "leon",
           status: "Boss Man",
           currentOccupation: "Baller"
         }
-        res.end(JSON.stringify(objToJson));
+        sendJson(res, objToJson)
       }//student = leon
       else if(params['student'] != 'leon'){
-        res.writeHead(200, {'Content-Type': 'application/json'});
         const objToJson = {
           name: "unknown",
           status: "unknown",
           currentOccupation: "unknown"
         }
-        res.end(JSON.stringify(objToJson));
+        sendJson(res, objToJson)
       }//student != leon
     }//student if
   }//else if
   else if (page == '/css/style.css'){
-    fs.readFile('css/style.css', function(err, data) {
-      res.write(data);
-      res.end();
-    });
+    readWrite(res, 'css/style.css', 'none', false)
   }else if (page == '/js/main.js'){
-    fs.readFile('js/main.js', function(err, data) {
-      res.writeHead(200, {'Content-Type': 'text/javascript'});
-      res.write(data);
-      res.end();
-    });
+    readWrite(res, 'js/main.js', 'text/javascript')
   }else{
     figlet('404!!', function(err, data) {
       if (err) {
