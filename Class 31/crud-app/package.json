@@ -1,0 +1,20 @@
+{
+  "name": "crud-app",
+  "version": "1.0.0",
+  "description": "a beginner walkthrough of a crud app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --legacy-watch server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.7",
+    "express": "^4.18.1",
+    "mongodb": "^4.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}

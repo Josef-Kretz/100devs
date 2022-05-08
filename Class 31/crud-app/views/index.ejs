@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CRUD App</title>
+  </head>
+  <body>
+    <h1>May Node and Express make this easy</h1>
+
+    <form action="/quotes" method="post">
+      <input type="text" name="name" placeholder="name">
+      <input type="text" name="quote" placeholder="quote">
+      <button type="submit">Submit</button>
+    </form>
+    <section>
+      <h2>Darth Vader invades!</h2>
+      <p>Replace first Yoda's quote with a quote written by Darth Vader</p>
+      <button id="update-button">Replace Yoda's quote</button>
+    </section>
+    <section>
+      <h2>Remove Darth Vader!</h2>
+      <p>Delete one of Darth Vader's quotes. Does nothing if there are no more Darth Vader's quotes</p>
+      <button id="delete-button">Delete Darth Vader's Quote</button>
+    </section>
+    <div id='message'></div>
+    <ul class="quotes">
+      <!-- loop through quotes -->
+      <% for(let i =0;i < quotes.length;++i)
+      {%>
+        <li class="quote">
+          <%# output name from the iterated quote object %>
+          <span><%= quotes[i].name %>:</span>
+          <%# output quote from the iterated quote object %>
+          <span><%= quotes[i].quote %></span>
+        </li>
+      <% } %>
+    </ul>
+    <script src="/main.js"></script>
+  </body>
+</html>
