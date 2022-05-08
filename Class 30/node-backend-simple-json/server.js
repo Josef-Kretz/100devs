@@ -28,54 +28,70 @@ function sendJson(res, object)
   res.end(JSON.stringify(object));
 }
 
+function apiHandler(res, params)
+{
+  if('student' in params){
+    if(params['student']== 'leon'){
+      const objToJson = {
+        name: "leon",
+        status: "Boss Man",
+        currentOccupation: "Baller"
+      }
+      sendJson(res, objToJson)
+    }//student = leon
+    else if(params['student'] != 'leon'){
+      const objToJson = {
+        name: "unknown",
+        status: "unknown",
+        currentOccupation: "unknown"
+      }
+      sendJson(res, objToJson)
+    }//student != leon
+  }//student if
+}
+
+function wrongPage(res)
+{
+  figlet('404!!', function(err, data) {
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    res.write(data);
+    res.end();
+  });
+}
+
 const server = http.createServer((req, res) => {
   const page = url.parse(req.url).pathname;
   const params = querystring.parse(url.parse(req.url).query);
   console.log(page);
-  if (page == '/') {
-    readWrite(res, 'index.html', 'text/html')
+  switch(page)
+  {
+    case '/':
+      readWrite(res, 'index.html', 'text/html')
+      break
+    case '/otherpage':
+      readWrite(res, 'otherpage.html', 'text/html')
+      break
+    case '/otherotherpage':
+      readWrite(res, 'otherotherpage.html', 'text/html')
+      break
+    case '/css/style.css':
+      readWrite(res, 'css/style.css', 'none', false)
+      break
+    case '/js/main.js':
+      readWrite(res, 'js/main.js', 'text/javascript')
+      break
+    case '/api':
+      apiHandler(res, params)
+      break
+    default:
+      wrongPage(res)
+      break
   }
-  else if (page == '/otherpage') {
-    readWrite(res, 'otherpage.html', 'text/html')
-  }
-  else if (page == '/otherotherpage') {
-    readWrite(res, 'otherotherpage.html', 'text/html')
-  }
-  else if (page == '/api') {
-    if('student' in params){
-      if(params['student']== 'leon'){
-        const objToJson = {
-          name: "leon",
-          status: "Boss Man",
-          currentOccupation: "Baller"
-        }
-        sendJson(res, objToJson)
-      }//student = leon
-      else if(params['student'] != 'leon'){
-        const objToJson = {
-          name: "unknown",
-          status: "unknown",
-          currentOccupation: "unknown"
-        }
-        sendJson(res, objToJson)
-      }//student != leon
-    }//student if
-  }//else if
-  else if (page == '/css/style.css'){
-    readWrite(res, 'css/style.css', 'none', false)
-  }else if (page == '/js/main.js'){
-    readWrite(res, 'js/main.js', 'text/javascript')
-  }else{
-    figlet('404!!', function(err, data) {
-      if (err) {
-          console.log('Something went wrong...');
-          console.dir(err);
-          return;
-      }
-      res.write(data);
-      res.end();
-    });
-  }
+
 });
 
 server.listen(8000);

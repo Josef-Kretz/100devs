@@ -27,31 +27,45 @@ function sendJson(res, object)
   res.end(JSON.stringify(object));
 }
 
+function handleAPI(res, params)
+{
+  if('flip' in params)
+  {
+    let hOrT = Math.floor(Math.random()*2)
+    const objToJson = {
+      flipped: hOrT ? 'Heads' : 'Tails'
+    }
+    sendJson(res, objToJson)
+  }
+}
+
 const server = http.createServer((req, res) => {
   const page = url.parse(req.url).pathname;
   const params = querystring.parse(url.parse(req.url).query);
   console.log(page);
-  if (page == '/') {
-    readWrite(res, 'index.html', 'text/html')
+  switch(page)
+  {
+    case '/':
+      readWrite(res, 'index.html', 'text/html')
+      break
+    case '/css/style.css':
+      readWrite(res, 'css/style.css', 'none', false)
+      break
+    case '/css/normalize.css':
+      readWrite(res, 'css/normalize.css', 'none', false)
+      break
+    case '/js/main.js':
+      readWrite(res, 'js/main.js', 'text/javascript')
+      break
+    case '/api':
+      handleAPI(res, params)
+      break
+    default:
+      res.writeHead(404, {'Content-Type': 'text/html'});
+      res.write("404 Page Not Found");
+      res.end();
+      break
   }
-  else if (page == '/css/style.css'){
-    readWrite(res, 'css/style.css', 'none', false)
-  }else if (page == '/css/normalize.css'){
-    readWrite(res, 'css/normalize.css', 'none', false)
-  }else if (page == '/js/main.js'){
-    readWrite(res, 'js/main.js', 'text/javascript')
-  }else if (page == '/api'){
-    if('flip' in params)
-    {
-      let hOrT = Math.floor(Math.random()*2)
-      const objToJson = {
-        flipped: hOrT ? 'Heads' : 'Tails'
-      }
-      sendJson(res, objToJson)
-    }
-  }else{
-    console.log('page not found')
-    }
   });
 
 server.listen(8000);
