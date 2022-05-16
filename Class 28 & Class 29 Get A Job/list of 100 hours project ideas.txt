@@ -1,0 +1,20 @@
+100 Hours Project - Movie Matcher
+User logs in, saves movies that they have seen and those they have liked
+Load movies from api, display in Tinder-like design and user swipes whether to like, dislike, favourite a movie/description
+Have a mode that reads the description to the user
+See about T.V. shows and T.V. ratings?
+Maybe make recommendations based on genre/description/rating (accessible through IMDB or Rotten Tomatoes?)
+Store movies, ratings, most-liked genres, accessible through a library page
+
+100 Hours Project - Cinnamon Swiper
+User logs in, save recipes, food categories they like (chocolatey, cakes, pies, muffins, loafs, others)
+Users make note of allergies, food preferences, etc...
+Load recipes through api, display in Tiner-like design and user swipes/clicks to save the recipes, saves notes and ratings if they make the recipes
+Have a mode that reads the recipe to the user
+Store notes, ratings, recipe likes, noticeable patterns, have a library consisting thereof
+
+100 Hours Project - QuiRoe (pronounced like Key Row/ homage to Hero from Guitar Hero)
+Guitar Hero like game where you match the key within a certain space/time frame (like guitar hero), to play a note along with a song
+Maybe have the song randomly generated, like how Harder Better Faster Stronger can go in any order
+Have a couple dedicated songs, royalty free and stuff
+Login, store song completions, %perfection, scores, longest run, user rating experience, playtime, etc

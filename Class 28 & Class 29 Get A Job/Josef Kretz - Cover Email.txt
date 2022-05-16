@@ -1,0 +1,10 @@
+Hello <Contact>,
+
+    My Interest with the <Company> began after meeting with <Referral's Role and Name>. I share their passion for working in a mission-oriented company and I admire their dedication. I too want to play a role in <Company's Mission>, and I'd like to start doing so as a Software Engineer with <Company>.
+    
+    As a machine operator, I excelled in learning in a fast pace environment and thrived in a collaborative workplace. I have experience in high-intensity workflows, delivering and performing quality work under tight deadlines. Now as a software engineer at 100Devs, I've worked on different full-stack applications, from design, coding, and testing to documentation and implementation. Most recently, I developed <Recent Full-Stack Project>, an application that <Project Description>. It is a fully responsive design, built using HTML, CSS, JavaScript, Express as a framework for Node.js, and EJS as a templating language and MongoDB as a database.
+    
+    My enthusiasm, perseverance, and initiative make me a perfectly capable candidate for the <Position> in the <Company/Team Name>. I'm excited about the opportunity to work on <With Customers/With Company Team>. I look forward to hearing back from you soon.
+    
+Thank you,
+Josef Kretz
