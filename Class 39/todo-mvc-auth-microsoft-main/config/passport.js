@@ -31,10 +31,9 @@ module.exports = function (passport) {
           microsoftId: profile.oid,
           displayName: profile.displayName,
         }
-
+        
         try {
           let user = await User.findOne({ microsoftId: profile.oid })
-
           if (user) {
             done(null, user)
           } else {
@@ -47,7 +46,6 @@ module.exports = function (passport) {
       }
     )
   )
-
   passport.serializeUser((user, done) => {
     done(null, user.id)
   })
