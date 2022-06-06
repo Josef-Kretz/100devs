@@ -1,10 +1,13 @@
-h1{
+h1{ 
+    /* sets all h1 headings to red text colour */
     color: red;
 }
 .completed{
+    /* styles completed list items with a strikethrough and a gray text colour */
     text-decoration: line-through;
     color: gray;
 }
 .not{
+    /* styles incomplete list items with a text underline */
     text-decoration: underline;
 }

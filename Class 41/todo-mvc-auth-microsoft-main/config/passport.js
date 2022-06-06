@@ -1,11 +1,11 @@
-const OIDCStrategy = require('passport-azure-ad').OIDCStrategy
-const mongoose = require('mongoose')
-const config = require('../config/config')
-const User = require('../models/User')
+const OIDCStrategy = require('passport-azure-ad').OIDCStrategy //allows use of passport azure framework
+const mongoose = require('mongoose') //allows use of mongoose framework
+const config = require('../config/config') //gets settings in config file
+const User = require('../models/User') //gets user schema
 
 module.exports = function (passport) {
   passport.use(
-    new OIDCStrategy({
+    new OIDCStrategy({ //copy and pasted from docs
         identityMetadata: config.creds.identityMetadata,
         clientID: config.creds.clientID,
         responseType: config.creds.responseType,
@@ -25,24 +25,25 @@ module.exports = function (passport) {
         cookieEncryptionKeys: config.creds.cookieEncryptionKeys,
         clockSkew: config.creds.clockSkew,
       },
-      async (accessToken, refreshToken, profile, done) => {
-        console.log('auth: ', profile)
-        const newUser = {
+      async (accessToken, refreshToken, profile, done) => { //callback for checking user
+        console.log('auth: ', profile) //logs profile to console
+        const newUser = {//creates a new user object
           microsoftId: profile.oid,
           displayName: profile.displayName,
         }
 
         try {
-          let user = await User.findOne({ microsoftId: profile.oid })
+          let user = await User.findOne({ microsoftId: profile.oid }) //checks database for existing user
 
-          if (user) {
+          if (user) { //if user exists, call done
             done(null, user)
           } else {
+            //if user is not in DB, create then done
             user = await User.create(newUser)
             done(null, user)
           }
         } catch (err) {
-          console.error(err)
+          console.error(err) //logs any caught error in database
         }
       }
     )
